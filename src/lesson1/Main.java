@@ -35,18 +35,19 @@ public class Main {
                 continue;
             }
 
+            int number = Math.max(maxAction, maxObstacles) - i;
+            int distanceRun = random.nextInt(maxDistanceRun) + 1;
+            int distanceJump = random.nextInt(maxDistanceJump) + 1;
+
             switch (random.nextInt(3)) {
                 case 0:
-                    System.out.println(1);
-                    listAction.add(new Cat("Cat " + (Math.max(maxAction, maxObstacles) - i), random.nextInt(maxDistanceRun) + 1, random.nextInt(maxDistanceJump) + 1));
+                    listAction.add(new Cat("Cat " + number, distanceRun, distanceJump));
                     break;
                 case 1:
-                    System.out.println(2);
-                    listAction.add(new Human("Human " + (Math.max(maxAction, maxObstacles) - i), random.nextInt(maxDistanceRun) + 1, random.nextInt(maxDistanceJump) + 1));
+                    listAction.add(new Human("Human " + number, distanceRun, distanceJump));
                     break;
                 case 2:
-                    System.out.println(3);
-                    listAction.add(new Robot("Robot " + (Math.max(maxAction, maxObstacles) - i), random.nextInt(maxDistanceRun) + 1, random.nextInt(maxDistanceJump) + 1));
+                    listAction.add(new Robot("Robot " + number, distanceRun, distanceJump));
                     break;
             }
         }
