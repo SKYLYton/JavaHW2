@@ -38,7 +38,7 @@ public class Main {
         telephoneDirectory.add("p", "87897876");
         telephoneDirectory.add("y", "876786786");
 
-        System.out.println(Arrays.toString(telephoneDirectory.getTels("K")));
+        System.out.println(Arrays.toString(telephoneDirectory.get("K")));
 
     }
 

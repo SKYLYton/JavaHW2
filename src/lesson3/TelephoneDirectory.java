@@ -11,7 +11,7 @@ public class TelephoneDirectory {
         map.get(surname).add(tel);
     }
 
-    public String[] getTels(String surname) {
+    public String[] get(String surname) {
         return map.get(surname).toArray(new String[0]);
     }
 
