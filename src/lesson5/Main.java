@@ -9,17 +9,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        fillArr(arr,1);
+        Arrays.fill(arr,1);
 
         long a = System.currentTimeMillis();
 
-        for (int i = 0; i < size; i++) {
-            arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-        }
+        fillArrForm(arr, 0);
 
         System.out.println(System.currentTimeMillis() - a);
 
-        fillArr(arr,1);
+        Arrays.fill(arr,1);
 
         a = System.currentTimeMillis();
 
@@ -50,18 +48,16 @@ public class Main {
 
     }
 
-    static void fillArr(float[] a, float f) {
-        for (int i = 0; i < size; i++) {
-            a[i] = f;
-        }
-    }
-
     static Thread fillThread(float[] a, int j){
         return new Thread(()->{
-            for (int i = 0; i < h; i++) {
-                a[i] = (float)(a[i] * Math.sin(0.2f + (i+j) / 5) * Math.cos(0.2f + (i+j) / 5) * Math.cos(0.4f + (i+j) / 2));
-            }
+            fillArrForm(a, j);
         });
 
+    }
+
+    static void fillArrForm(float[] a, int j){
+        for (int i = 0; i < a.length; i++) {
+            a[i] = (float)(a[i] * Math.sin(0.2f + (i+j) / 5) * Math.cos(0.2f + (i+j) / 5) * Math.cos(0.4f + (i+j) / 2));
+        }
     }
 }
